@@ -1,6 +1,6 @@
 package modelo;
 
-import java.util.Objects;
+
 
 public class Cliente {
 //atributos	
@@ -71,10 +71,6 @@ public void setTelefono(String telefono) {
 }
 
 
-@Override
-public int hashCode() {
-	return Objects.hash(apellido, dni, idCliente, nombre, telefono);
-}
 
 
 
@@ -82,13 +78,14 @@ public int hashCode() {
 
 @Override
 public String toString() {
-	return "Cliente id:" + idCliente + ", nombre:" + nombre + ",/n apellido:" + apellido + ", dni:" + dni
-			+ ",/n telefono:" + telefono + "]";
+	return "\nCliente [nombre:" + nombre + " ,apellido:" + apellido + " ,dni:" + dni + " ,telefono:" + telefono +"]";
 }
 
 
 
-
+public boolean equals(Cliente cliente) {
+	return cliente.dni==dni && cliente.apellido.equals(apellido)&&cliente.idCliente==idCliente && cliente.nombre.equals(nombre)&& cliente.telefono.equals(telefono);
+}
 
 
 

@@ -43,10 +43,12 @@ public class Mesa {
 
 	@Override
 	public String toString() {
-		return "/Mesa id:"+ idMesa+"/nnro mesa:"+NumeroMesa+ "/ncapacidad:" + capacidad ;
+		return "\nnuemro de  mesa: "+NumeroMesa+ " capacidad: " + capacidad ;
 	}
 	
-	
+	public boolean equals(Mesa mesa) {
+		return mesa.capacidad==capacidad && mesa.idMesa==idMesa;
+	}
 	
 	
 	

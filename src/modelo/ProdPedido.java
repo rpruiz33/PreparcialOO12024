@@ -15,24 +15,12 @@ public class ProdPedido {
 	}
 
 
-	@Override
-	public int hashCode() {
-		return Objects.hash(precio, producto);
-	}
 
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		ProdPedido other = (ProdPedido) obj;
-		return Double.doubleToLongBits(precio) == Double.doubleToLongBits(other.precio)
-				&& Objects.equals(producto, other.producto);
+	public boolean equals(ProdPedido producto) {
+	return producto.precio==precio && producto.producto.equals(producto);
 	}
+	
 
 
 	public double getPrecio() {

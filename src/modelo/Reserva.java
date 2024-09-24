@@ -11,13 +11,13 @@ public class Reserva {
 	private Mesa mesa;
 	private int cantComensales;
 	
-	public Reserva(int idReserva, Cliente cliente, LocalDate fecha, Mesa mesa, int cantComensales) {
+	public Reserva(int idReserva, Cliente cliente, LocalDate fecha, Mesa mesa, int cantComensales) throws Exception {
 		super();
 		this.idReserva = idReserva;
 		this.cliente = cliente;
 		this.fecha = fecha;
 		this.mesa = mesa;
-		this.cantComensales = cantComensales;
+		setCantComensales(cantComensales);
 	}
 
 	public int getIdReserva() {
@@ -56,8 +56,10 @@ public class Reserva {
 		return cantComensales;
 	}
 
-	public void setCantComensales(int cantComensales) {
+	public void setCantComensales(int cantComensales) throws Exception {
+		if(validarComensales(cantComensales)){
 		this.cantComensales = cantComensales;
+		}
 	}
 
 	private boolean validarComensales(int cantComensales)throws Exception{
@@ -66,7 +68,7 @@ public class Reserva {
 		throw new Exception ("se paso de la capacidad de comensales");
 	}
 	else {
-		setCantComensales(cantComensales);
+	
 		aux=true;
 	}
 	return aux;
@@ -77,10 +79,15 @@ public class Reserva {
 
 	@Override
 	public String toString() {
-		return "Reserva id:" + idReserva + ", cliente:" + cliente + ",\n fecha:" + fecha + ", mesa:" + mesa
-				+ ", cantComensales:" + cantComensales + "]";
+		return " \nRESERVA "+cliente+"fecha:"+fecha+", mesa:"+mesa+", cantComensales:"+cantComensales +"]\n";
 	}
 	
+	
+	
+	public boolean equals(Reserva reserva) {
+	return reserva.cantComensales==cantComensales &&  reserva.cliente.equals(cliente) && reserva.fecha.equals(fecha) && reserva.idReserva==idReserva && reserva.mesa.equals(mesa) ;     
+	
+	}
 	
 	
 	
