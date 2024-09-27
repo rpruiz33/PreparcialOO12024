@@ -79,7 +79,7 @@ public class Reserva {
 
 	@Override
 	public String toString() {
-		return " \nRESERVA "+cliente+"fecha:"+fecha+", mesa:"+mesa+", cantComensales:"+cantComensales +"]\n";
+		return " \nRESERVA "+cliente+"fecha:"+fecha+", mesa:"+mesa+", cantComensales:"+cantComensales +"\n";
 	}
 	
 	
